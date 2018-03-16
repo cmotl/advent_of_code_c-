@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /src/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_76929/fast"
+/usr/bin/make -f CMakeFiles/cmTC_76929.dir/build.make CMakeFiles/cmTC_76929.dir/build
+make[1]: Entering directory '/src/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_76929.dir/CheckSymbolExists.c.o
+/usr/bin/clang    -o CMakeFiles/cmTC_76929.dir/CheckSymbolExists.c.o   -c /src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_76929
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76929.dir/link.txt --verbose=1
+/usr/bin/clang      -rdynamic CMakeFiles/cmTC_76929.dir/CheckSymbolExists.c.o  -o cmTC_76929 
+CMakeFiles/cmTC_76929.dir/CheckSymbolExists.c.o: In function `main':
+/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:(.text+0x19): undefined reference to `pthread_create'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+CMakeFiles/cmTC_76929.dir/build.make:97: recipe for target 'cmTC_76929' failed
+make[1]: *** [cmTC_76929] Error 1
+make[1]: Leaving directory '/src/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_76929/fast' failed
+make: *** [cmTC_76929/fast] Error 2
+
+File /src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /src/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_370cf/fast"
+/usr/bin/make -f CMakeFiles/cmTC_370cf.dir/build.make CMakeFiles/cmTC_370cf.dir/build
+make[1]: Entering directory '/src/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_370cf.dir/CheckFunctionExists.c.o
+/usr/bin/clang   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_370cf.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_370cf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_370cf.dir/link.txt --verbose=1
+/usr/bin/clang  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_370cf.dir/CheckFunctionExists.c.o  -o cmTC_370cf -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+CMakeFiles/cmTC_370cf.dir/build.make:97: recipe for target 'cmTC_370cf' failed
+make[1]: *** [cmTC_370cf] Error 1
+make[1]: Leaving directory '/src/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_370cf/fast' failed
+make: *** [cmTC_370cf/fast] Error 2
+
+
